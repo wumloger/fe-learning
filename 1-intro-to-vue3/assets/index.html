@@ -8,36 +8,37 @@
     <link rel="stylesheet" href="./styles.css">
 
     <title>Document</title>
+    <style>
+        .container {
+            display: inline-block;
+            text-align: center;
+        }
+
+        img {
+            height: 300px;
+            width: 300px;
+        }
+
+        span {
+            color: red;
+        }
+
+        body {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-        <div class="nav-bar">
-            <div class="product-display">
-                <div class="product-container">
-                    <div class="product-image">
-                        <img v-bind:src="image" :alt="product">
-                    </div>
-                    <div class="product-info">
-                        <h1 v-if="count!= 0">number: {{count}}</h1>
-                        <button :disabled="count > 10" @click="count++">+1</button>
-                        <button :disabled="count < 0" @click="count--">-1</button>
-                    </div>
-                    <table>
-                        <tr>
-                            <td>序号</td>
-                            <td>姓名</td>
-                            <td>年龄</td>
-                        </tr>
-                        <tr v-for="(user ,index) in users">
-                            <td>{{index}}</td>
-                            <td>{{user.name}}</td>
-                            <td>{{user.age}}</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+        <div class="container" v-for="cls in classes">
+            <img :src="cls.img" alt="">
+            <p>{{cls.name}} <span v-if="cls.finish">已结束</span></p>
+            <p>教师名:{{cls.teacher}}</p>
+            <p>{{cls.class}}</p>
+
         </div>
+    </div>
 </body>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
