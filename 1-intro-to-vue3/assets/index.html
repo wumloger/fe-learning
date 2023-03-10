@@ -13,8 +13,16 @@
 <body>
     <div id="app">
         <h1>{{product}}</h1>
-
-    </div>
+        <p>{{dec}}</p>
+        <!-- <div class="product-image">
+            <img :src="img">
+        </div> -->
+        <h1>{{count}}</h1>
+        <button @click="count++">+1</button>
+        <div v-if="count > 1 & count < 4">count > 1 & count < 4 </div>
+                <div v-else-if="count > 4 & count <10">count > 4 & count <10 </div>
+                        <div v-else>else</div>
+                </div>
 </body>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
