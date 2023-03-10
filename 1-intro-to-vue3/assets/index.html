@@ -12,17 +12,32 @@
 
 <body>
     <div id="app">
-        <h1>{{product}}</h1>
-        <p>{{dec}}</p>
-        <!-- <div class="product-image">
-            <img :src="img">
-        </div> -->
-        <h1>{{count}}</h1>
-        <button @click="count++">+1</button>
-        <div v-if="count > 1 & count < 4">count > 1 & count < 4 </div>
-                <div v-else-if="count > 4 & count <10">count > 4 & count <10 </div>
-                        <div v-else>else</div>
+        <div class="nav-bar">
+            <div class="product-display">
+                <div class="product-container">
+                    <div class="product-image">
+                        <img v-bind:src="image" :alt="product">
+                    </div>
+                    <div class="product-info">
+                        <h1 v-if="count!= 0">number: {{count}}</h1>
+                        <button :disabled="count > 10" @click="count++">+1</button>
+                        <button :disabled="count < 0" @click="count--">-1</button>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>序号</td>
+                            <td>姓名</td>
+                            <td>年龄</td>
+                        </tr>
+                        <tr v-for="(user ,index) in users">
+                            <td>{{index}}</td>
+                            <td>{{user.name}}</td>
+                            <td>{{user.age}}</td>
+                        </tr>
+                    </table>
                 </div>
+            </div>
+        </div>
 </body>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
